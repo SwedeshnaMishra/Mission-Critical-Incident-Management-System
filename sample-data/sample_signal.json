@@ -1,0 +1,6 @@
+{
+  "component_id": "CACHE_CLUSTER_01",
+  "severity": "P2",
+  "message": "Cache latency spike",
+  "timestamp": 1710000000
+}
