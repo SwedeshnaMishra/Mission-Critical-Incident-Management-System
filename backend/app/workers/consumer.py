@@ -34,7 +34,6 @@ def process_signal(signal):
 
     db = SessionLocal()
 
-    # Debounce logic
     if should_create_work_item(component_id):
         work_item = WorkItem(
             component_id=component_id,
@@ -48,14 +47,12 @@ def process_signal(signal):
 
         work_item_id = work_item.id
     else:
-        # find latest open work item
         work_item = db.query(WorkItem).filter_by(
             component_id=component_id, status="OPEN"
         ).order_by(WorkItem.id.desc()).first()
 
         work_item_id = work_item.id if work_item else None
 
-    # Store raw signal
     signals_collection.insert_one({
         "component_id": component_id,
         "message": signal["message"],
