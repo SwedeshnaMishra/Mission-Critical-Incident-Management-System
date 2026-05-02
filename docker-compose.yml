@@ -1,0 +1,42 @@
+services:
+
+  backend:
+    build: ./backend
+    container_name: ims_backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - postgres
+      - mongodb
+
+  worker:
+    build: ./backend
+    container_name: ims_worker
+    command: python app/workers/run_worker.py
+    depends_on:
+      - redis
+      - postgres
+      - mongodb
+
+  redis:
+    image: redis:7
+    container_name: ims_redis
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:15
+    container_name: ims_postgres
+    environment:
+      POSTGRES_USER: ims
+      POSTGRES_PASSWORD: ims
+      POSTGRES_DB: ims_db
+    ports:
+      - "5432:5432"
+
+  mongodb:
+    image: mongo:latest
+    container_name: ims_mongo
+    ports:
+      - "27017:27017"
