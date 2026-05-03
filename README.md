@@ -82,10 +82,10 @@ http://localhost:3000
 
 ## 🌐 Access URLs
 
-| Service        | URL                        |
-|----------------|---------------------------|
-| Frontend       | http://localhost:3000     |
-| Backend (Docs) | http://localhost:8000/docs|
+| Service          | URL                        |
+|------------------|---------------------------|
+| Frontend (React) | http://localhost:3000     |
+| Backend API Docs | http://localhost:8000/docs|
 
 ---
 
@@ -447,6 +447,8 @@ IMS-System/
 ├── .gitignore
 ├── README.md
 ```
+
+Note: Redis/Mongo clients are included as placeholders for future scalability extensions.
 
 ---
 
