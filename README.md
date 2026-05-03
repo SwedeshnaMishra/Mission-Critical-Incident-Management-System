@@ -387,7 +387,7 @@ To handle high-volume signal ingestion and prevent system overload, the followin
 ## 📦 Project Structure
 
 ```bash
-IMS-System/
+Mission-Critical-Incident-Management-System/
 │
 ├── backend/
 │   ├── app/
@@ -397,6 +397,7 @@ IMS-System/
 │   │   │
 │   │   ├── models/
 │   │   │   ├── work_item.py
+|   |   |   ├── signal.py
 │   │   │   └── rca.py
 │   │   │
 │   │   ├── schemas/
@@ -404,8 +405,17 @@ IMS-System/
 │   │   │
 │   │   ├── services/
 │   │   │   ├── db.py
+|   |   |   ├── mongo_client.py
+|   |   |   ├── redis_client.py
 │   │   │   ├── state_manager.py
-│   │   │   └── worker.py
+│   │   │   └── debounce.py  
+│   │   │
+│   │   ├── utils/
+│   │   │   └── rate_limiter.py
+│   │   │
+│   │   ├── workers/
+│   │   │   ├── consumer.py
+│   │   │   └── run_worker.py
 │   │   │
 │   │   └── main.py
 │   │
@@ -414,6 +424,11 @@ IMS-System/
 │
 ├── frontend/
 │   ├── src/
+│   │   ├── components/
+│   │   │   ├── Navbar.js
+│   │   │   ├── SeverityBadge.js
+│   │   │   └── StatusBadge.js
+│   │   │
 │   │   ├── pages/
 │   │   │   ├── Home.js
 │   │   │   └── Incident.js
@@ -421,22 +436,18 @@ IMS-System/
 │   │   ├── services/
 │   │   │   └── api.js
 │   │   │
-│   │   ├── components/
-│   │   │   ├── SeverityBadge.js
-│   │   │   └── StatusBadge.js
+│   │   ├── App.js
 │   │   │
-│   │   └── App.js
+│   │   └── index.css
 │   │
 │   ├── package.json
 │   ├── tailwind.config.js
 │   ├── postcss.config.js
-│   ├── Dockerfile
 │
 ├── sample-data/
 │   └── sample_signal.json
 │
 ├── docs/
-│   ├── architecture.png 
 │   ├── ui-home.png
 │   └── ui-incident.png
 │
@@ -448,7 +459,7 @@ IMS-System/
 ├── README.md
 ```
 
-Note: Redis/Mongo clients are included as placeholders for future scalability extensions.
+> Note: Redis/Mongo clients are included as placeholders for future scalability extensions.
 
 ---
 
