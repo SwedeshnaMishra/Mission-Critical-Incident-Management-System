@@ -397,7 +397,7 @@ Mission-Critical-Incident-Management-System/
 │   │   │
 │   │   ├── models/
 │   │   │   ├── work_item.py
-|   |   |   ├── signal.py
+│   │   │   ├── signal.py
 │   │   │   └── rca.py
 │   │   │
 │   │   ├── schemas/
@@ -405,8 +405,8 @@ Mission-Critical-Incident-Management-System/
 │   │   │
 │   │   ├── services/
 │   │   │   ├── db.py
-|   |   |   ├── mongo_client.py
-|   |   |   ├── redis_client.py
+│   │   │   ├── mongo_client.py
+│   │   │   ├── redis_client.py
 │   │   │   ├── state_manager.py
 │   │   │   └── debounce.py  
 │   │   │
